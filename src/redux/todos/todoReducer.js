@@ -6,8 +6,6 @@ import {
   COMPLETALL,
   CLEARECOMPLETED,
 } from "./actionsTypes";
-import { SELECTEDSTATUS } from "./../filters/actionsType";
-import deepFreezeAndThrowOnMutationInDev from "react-native/Libraries/Utilities/deepFreezeAndThrowOnMutationInDev";
 
 const initialState = [
   {
@@ -50,7 +48,7 @@ const todoReducer = (state = initialState, action) => {
           };
         } else {
           return {
-            todo,
+            ...todo,
           };
         }
       });
@@ -62,7 +60,7 @@ const todoReducer = (state = initialState, action) => {
             color: action.payload.color,
           };
         } else {
-          todo;
+          return todo;
         }
       });
     case COMPLETALL:
@@ -75,7 +73,7 @@ const todoReducer = (state = initialState, action) => {
     case CLEARECOMPLETED:
       return state.filter((todo) => todo.complet !== true);
     default:
-      state;
+      return state;
   }
 };
 
