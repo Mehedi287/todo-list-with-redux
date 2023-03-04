@@ -6,7 +6,7 @@ export const statusSelected = (status) => {
     payload: status,
   };
 };
-export const colorsSelected = (color, changeType) => {
+export const filterByColorSelect = (color, changeType) => {
   return {
     type: SELECTEDCLOLORS,
     payload: {

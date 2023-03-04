@@ -20,6 +20,12 @@ const initialState = [
     complet: true,
     color: "green",
   },
+  {
+    id: 3,
+    text: "learn  rect",
+    complet: true,
+    color: "green",
+  },
 ];
 const nextId = (todos) => {
   const maxId = todos.reduce((maxId, todo) => {

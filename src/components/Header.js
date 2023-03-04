@@ -1,7 +1,13 @@
 import React from "react";
 import notes from "../images/notes.png";
 import doubleTick from "../images/double-tick.png";
+import { useDispatch } from "react-redux";
+import { completAll } from "../redux/todos/actions";
 const Header = () => {
+  const dispatch = useDispatch();
+  const handleAllComplate = () => {
+    dispatch(completAll());
+  };
   return (
     <div>
       <form className="flex items-center bg-gray-100 px-4 py-4 rounded-md">
@@ -20,7 +26,7 @@ const Header = () => {
       <ul className="flex justify-between my-4 text-xs text-gray-500">
         <li className="flex space-x-1 cursor-pointer">
           <img className="w-4 h-4" src={doubleTick} alt="Complete" />
-          <span>Complete All Tasks</span>
+          <span onClick={handleAllComplate}>Complete All Tasks</span>
         </li>
         <li className="cursor-pointer">Clear completed</li>
       </ul>
